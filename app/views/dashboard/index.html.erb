@@ -1,0 +1,11 @@
+<h2>Dashboard</h2>
+
+<h3>Websites:<h3>
+
+<ul>
+  <%- for s in @websites -%>
+    <li><%= link_to s.name, s %></li>
+  <%- end -%>
+</ul>
+
+<%= link_to "Create website", :new_website %>

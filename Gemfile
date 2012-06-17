@@ -11,6 +11,11 @@ end
 
 gem 'pg'
 gem 'thin'
+gem 'devise'
+gem 'resque', :require => 'resque/server'
+gem 'simple_form'
+gem 'inherited_resources'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -22,17 +27,19 @@ end
 
 gem 'jquery-rails'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'spork'
+end
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+group :test do
+  # bundler requires these gems while running tests
+  gem "capybara"
+  gem "rspec"
+  gem 'rspec-rails-mocha'
+  gem "factory_girl"
+  gem "launchy"
+  gem "fakeweb"
+  gem "ruby-prof"
+end
