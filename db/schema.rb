@@ -24,9 +24,17 @@ ActiveRecord::Schema.define(:version => 20120616235936) do
     t.string   "browser"
     t.string   "country"
     t.string   "os"
+    t.string   "user_agent"
+    t.string   "referer"
+    t.string   "language"
+    t.string   "charset"
     t.integer  "website_id"
     t.datetime "created_at"
   end
+
+  add_index "requests", ["browser"], :name => "index_requests_on_browser"
+  add_index "requests", ["country"], :name => "index_requests_on_country"
+  add_index "requests", ["os"], :name => "index_requests_on_os"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

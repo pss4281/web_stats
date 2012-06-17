@@ -27,8 +27,8 @@ class User < ActiveRecord::Base
   end
   
   def setup_account
-    account = Account.find_or_create_by_name_and_owner_id(self.account_name, self.id) unless self.account_name.blank?
-    self.update_attributes(account: account)
+    acc = Account.find_or_create_by_name_and_owner_id(self.account_name, self.id) unless self.account_name.blank?
+    self.update_attributes(account: acc)
   end
 
 end

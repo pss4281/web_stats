@@ -1,2 +1,10 @@
 <h1>Websites#show</h1>
-<p>Find me in app/views/websites/show.html.erb</p>
+
+<p>
+  <span>Name:</span><%= @website.name %>
+</p>
+<p>
+  <span>URL:</span><%= @website.uri %>
+</p>
+
+<%= link_to "Edit", [:edit, @website] %>
