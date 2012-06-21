@@ -10,7 +10,7 @@ class WebsitesController < ApplicationController
 
   def external_call
     pars = RequestParser.perform(request)
-    @website = current_user.account.websites.find(params[:id])
+    @website = Website.find(params[:id])
     @website.requests.create(pars)
     respond_to do |resp|
       resp.js{ render :js => "//ok" }
